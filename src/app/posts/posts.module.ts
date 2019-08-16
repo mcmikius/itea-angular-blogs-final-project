@@ -8,8 +8,8 @@ import {RouterModule, Routes} from '@angular/router';
 
 
 const routes: Routes = [
-  { path: 'blogs', component: PostsListComponent },
-  { path: 'blogs/:id', component: PostDetailComponent },
+  { path: 'blog', component: PostsListComponent },
+  { path: 'blog/:id', component: PostDetailComponent },
   { path: 'dashboard', component: PostDashboardComponent },
 ]
 
