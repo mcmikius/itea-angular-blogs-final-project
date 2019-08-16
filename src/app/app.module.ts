@@ -17,7 +17,7 @@ import {AngularFireAuthModule} from '@angular/fire/auth';
   ],
   imports: [
     BrowserModule,
-    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireModule.initializeApp(environment.firebase, 'ng-blog-itea-finale-project'),
     AngularFirestoreModule,
     AngularFireStorageModule,
     AngularFireAuthModule,
