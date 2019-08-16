@@ -1,0 +1,38 @@
+Скопируйте и вставьте эти скрипты в конец тега <body> перед сервисами Firebase:
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="/__/firebase/6.4.0/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+https://firebase.google.com/docs/web/setup#reserved-urls -->
+
+<!-- Initialize Firebase -->
+<script src="/__/firebase/init.js"></script>
+
+Для размещения сайта в Firebase Hosting требуется интерфейс командной строки Firebase.
+
+Выполните указанную ниже команду npm, чтобы установить ИКС или обновить его до последней версии.
+npm install -g firebase-tools
+
+Вы можете развернуть сайт прямо сейчас или сделать это позже. Чтобы развернуть сайт сейчас, откройте окно терминала и перейдите в корневой каталог вашего веб-приложения.
+Войдите в аккаунт Google
+firebase login
+
+Инициируйте проект
+Выполните эту команду в корневом каталоге приложения:
+firebase init
+
+Разверните приложение
+Поместите статические файлы (например, HTML, CSS, JS) в каталог развертывания приложения (по умолчанию используется каталог public). Затем выполните следующую команду в корневом каталоге приложения:
+firebase deploy
+
+
+В соответствии с вашими правилами по умолчанию операции чтения и записи могут выполнять все пользователи, вошедшие в систему.
+
+После того как вы определите структуру данных, нужно будет создать правила для их защиты.
+service firebase.storage {
+  match /b/{bucket}/o {
+    match /{allPaths=**} {
+      allow read, write: if request.auth != null;
+    }
+  }
+}
