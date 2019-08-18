@@ -22,6 +22,6 @@ export class PostService {
             return data;
           });
         }
-      )).subscribe();
+      ));
   }
 }

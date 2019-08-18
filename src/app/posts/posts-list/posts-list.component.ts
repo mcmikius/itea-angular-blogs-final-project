@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {Observable} from 'rxjs';
-import {map} from 'rxjs/operators';
 
 import IPost from '../post';
 import {PostService} from '../post.service';
@@ -17,6 +16,7 @@ export class PostsListComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.posts = this.postService.getPosts();
   }
 
 }
