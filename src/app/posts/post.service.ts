@@ -31,4 +31,20 @@ export class PostService {
     return this.postDocument.valueChanges();
   }
 
+  getPost(id: string) {
+    return this.afs.doc<IPost>(`posts/${id}`);
+  }
+
+  createPost(data: IPost) {
+    this.postsCollection.add(data);
+  }
+
+  deletePost(id: string) {
+    return this.getPost(id).delete();
+  }
+
+  updatePost(id: string, formData) {
+    return this.getPost(id).update(formData);
+  }
+
 }
