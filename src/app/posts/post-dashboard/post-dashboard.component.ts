@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {AuthService} from '../../core/auth.service';
+import {PostService} from '../post.service';
 
 @Component({
   selector: 'app-post-dashboard',
@@ -7,9 +9,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PostDashboardComponent implements OnInit {
 
-  constructor() { }
+  title: string;
+  image: string = null;
+  content: string;
+
+  constructor(private auth: AuthService, private postService: PostService) {
+  }
 
   ngOnInit() {
+  }
+
+  createPost() {
+    const data = {
+      title: this.title,
+      content: this.content,
+      image: this.image,
+      createdAt: new Date(),
+      author: this.auth.authState.displayName || this.auth.authState.email,
+      authorId: this.auth.currentUserId
+    };
+    this.postService.createPost(data);
   }
 
 }
