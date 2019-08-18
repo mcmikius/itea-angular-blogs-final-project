@@ -6,6 +6,7 @@ import {map} from 'rxjs/operators';
 @Injectable()
 export class PostService {
   postsCollection: AngularFirestoreCollection<IPost>;
+  postDocument: AngularFirestoreDocument<IPost>;
 
   constructor(private afs: AngularFirestore) {
     this.postsCollection = this.afs.collection('posts', ref =>
@@ -24,4 +25,10 @@ export class PostService {
         }
       ));
   }
+
+  getPostData(id: string) {
+    this.postDocument = this.afs.doc<IPost>(`posts/${id}`);
+    return this.postDocument.valueChanges();
+  }
+
 }
