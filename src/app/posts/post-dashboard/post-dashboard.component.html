@@ -27,7 +27,8 @@
         </label>
       </mat-form-field>
       <br>
-      <button (click)="createPost()" [disabled]="!title || !content || !image" color="accent"
+      <!--      TODO: fix disabled and required with:  || !image - after content-->
+      <button (click)="createPost()" [disabled]="!title || !content" color="accent"
               mat-raised-button>{{buttonText}}</button>
     </mat-expansion-panel>
   </mat-accordion>

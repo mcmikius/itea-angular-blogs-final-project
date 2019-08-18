@@ -3,6 +3,7 @@ import {Observable} from 'rxjs';
 
 import IPost from '../post';
 import {PostService} from '../post.service';
+import {AuthService} from '../../core/auth.service';
 
 @Component({
   selector: 'app-posts-list',
@@ -12,11 +13,15 @@ import {PostService} from '../post.service';
 export class PostsListComponent implements OnInit {
   posts: Observable<IPost[]>;
 
-  constructor(private postService: PostService) {
+  constructor(private postService: PostService, public auth: AuthService) {
   }
 
   ngOnInit() {
     this.posts = this.postService.getPosts();
+  }
+
+  deletePost(id: string) {
+    this.postService.deletePost(id);
   }
 
 }
