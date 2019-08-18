@@ -7,13 +7,18 @@
         </mat-panel-title>
       </mat-expansion-panel-header>
       <mat-form-field>
-        <input [(ngModel)]="title" matInput name="title" placeholder="Post title">
+        <label>
+          <input [(ngModel)]="title" matInput name="title" placeholder="Post title">
+        </label>
       </mat-form-field>
       <br>
       <mat-form-field>
-        <textarea [(ngModel)]="content" matInput name="content" placeholder="Post content" rows="10"></textarea>
+        <label>
+          <textarea [(ngModel)]="content" matInput name="content" placeholder="Post content" rows="10"></textarea>
+        </label>
       </mat-form-field>
-
+      <br>
+      <button (click)="createPost()" color="accent" mat-raised-button>CREATE</button>
     </mat-expansion-panel>
   </mat-accordion>
 </section>
