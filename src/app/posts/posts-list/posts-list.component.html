@@ -4,7 +4,7 @@
       <img alt="{{post.title}}" mat-card-image src="{{post.image}}">
       <h2>{{post.title}}</h2>
       <p>
-        <small>Posted by {{post.author}} &bull; on {{post.createdAt | date:"fullDate"}}</small>
+        <small>Posted by {{post.author}}; on {{post.createdAt | date:"fullDate"}}</small>
       </p>
     </mat-card-content>
     <mat-card-actions *ngIf="auth.currentUserId === post.authorId" align="end">
